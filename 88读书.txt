@@ -36,3 +36,4 @@
   "searchUrl": "/search.html,{\n'charset': '',\n'method': 'POST',\n'body': 'searchkey={{key}}',\n'headers': {\n    'User-Agent': ''\n    }\n}",
   "weight": 0
 }
+
