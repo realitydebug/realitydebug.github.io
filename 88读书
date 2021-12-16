@@ -1,0 +1,38 @@
+{
+  "bookSourceComment": "",
+  "bookSourceGroup": "现实debug",
+  "bookSourceName": "88读书网......",
+  "bookSourceType": 0,
+  "bookSourceUrl": "http://m.8dushu.com",
+  "customOrder": 0,
+  "enabled": true,
+  "enabledExplore": true,
+  "lastUpdateTime": 1639618324181,
+  "respondTime": 180000,
+  "ruleBookInfo": {},
+  "ruleContent": {
+    "content": "class.content@html",
+    "nextContentUrl": "text.下一页@href"
+  },
+  "ruleExplore": {},
+  "ruleSearch": {
+    "author": "class.data.0@class.layui-bg-cyan@text",
+    "bookList": "class.main@class.list@tag.li",
+    "bookUrl": "class.bookname@tag.a@href",
+    "checkKeyWord": "我的",
+    "coverUrl": "tag.a.0@tag.img@src",
+    "intro": "class.intro@text",
+    "kind": "class.data.0@class.layui-btn-radius@text",
+    "lastChapter": "class.data.1@tag.a@text",
+    "name": "class.bookname@text",
+    "wordCount": "class.data.0@class.layui-btn-danger@text"
+  },
+  "ruleToc": {
+    "chapterList": "class.read@tag.li",
+    "chapterName": "tag.a@text",
+    "chapterUrl": "tag.a@href",
+    "nextTocUrl": "class.pagelist@class.pagenum@tag.select@tag.option@value"
+  },
+  "searchUrl": "/search.html,{\n'charset': '',\n'method': 'POST',\n'body': 'searchkey={{key}}',\n'headers': {\n    'User-Agent': ''\n    }\n}",
+  "weight": 0
+}
