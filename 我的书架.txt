@@ -9,7 +9,7 @@
   "enabledCookieJar": false,
   "enabledExplore": true,
   "exploreUrl": "全部::http://www.wodeshujia.net/shuku/0-lastupdate-0-{{page}}.html\n耿美::http://www.wodeshujia.net/shuku/1-lastupdate-0-{{page}}.html\n耿美肉文::http://www.wodeshujia.net/shuku/2-lastupdate-0-{{page}}.html\n不写了自己加吧",
-  "lastUpdateTime": 1657377238349,
+  "lastUpdateTime": 1657378142598,
   "loginUrl": "http://www.wodeshujia.net/mytool/getVerify/",
   "respondTime": 239928,
   "ruleBookInfo": {
