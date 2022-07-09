@@ -1,0 +1,53 @@
+{
+  "bookSourceComment": "搜索页获取简介内容导致搜索慢\n因为太慢了所以一次只获取10本\n\n删掉搜索页的书籍简介全部内容，和书籍搜索列表中的js\n可大幅提高搜索速度\n\n\n\n需要删掉的内容，书源搜索页:\n<js>\na=result\ne=20\nlist=[]\nb=java.get(\"pag\")\nb=(Number(b)-1)*e\njava.log(b)\nc=b+e\njava.log(c)\nd=0\nfor(i=b;i<c;i++){\n\tlist[d]=a[i]\n\td++\n\t}\n\tlist\n</js>\n\n\n\n和\n\n\n\ntag.a@href\n<js>\na=result\nc=\"http://www.wodeshujia.net/\"\nb=java.ajax(c+a)\n</js>\nclass.review@text",
+  "bookSourceGroup": "test",
+  "bookSourceName": "我的书架",
+  "bookSourceType": 0,
+  "bookSourceUrl": "http://www.wodeshujia.net/",
+  "customOrder": 0,
+  "enabled": true,
+  "enabledCookieJar": false,
+  "enabledExplore": true,
+  "exploreUrl": "全部::http://www.wodeshujia.net/shuku/0-lastupdate-0-{{page}}.html\n耿美::http://www.wodeshujia.net/shuku/1-lastupdate-0-{{page}}.html\n耿美肉文::http://www.wodeshujia.net/shuku/2-lastupdate-0-{{page}}.html\n不写了自己加吧",
+  "lastUpdateTime": 1657377238349,
+  "loginUrl": "http://www.wodeshujia.net/mytool/getVerify/",
+  "respondTime": 239928,
+  "ruleBookInfo": {
+    "coverUrl": "",
+    "init": "",
+    "intro": "class.review@text",
+    "lastChapter": "",
+    "tocUrl": "@js:\nvar str = java.getString('text.查看完整目录@href');\njava.log(str)\nb=str.match(/\\d{1,}/gi)[1]\njava.log(b)\na=baseUrl\nyzm=source.getVariable()\na+\"all.html\"+',{\"method\": \"POST\",\"headers\":{\t\"Host\":\"www.wodeshujia.net\",\"Content-Length\":\"45\",\"Origin\":\"http://www.wodeshujia.net\",\"Upgrade-Insecure-Requests\":\"1\",\"Content-Type\":\"application/x-www-form-urlencoded\",\"Accept\":\"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3\",\"Referer\":\"http://www.wodeshujia.net/\" },\"body\":\"verify='+yzm+'&aid='+b+'&sbt=%E6%8F%90%E4%BA%A4\" }'"
+  },
+  "ruleContent": {
+    "content": "@js:\nvar str=java.getString('id.chaptercontent@html')\nif(str==\"\"){\n\ta='<img src=\"http://www.wodeshujia.net/mytool/getVerify\"><p>点击登录也可获得验证码，将验证码输入到源变量(不是书籍变量)刷新书籍即可，\\n\\n详情页右上角三个点，刷新，设置变量\\n\\n图片样式建议改为text，在源内设置为text好像有点bug，建议看书时加载完成后右上角设置，\\n\\n搜索页获取简介内容导致搜索慢\\n\\n因为太慢了所以一次只获取10本\\n\\n详情请看源注释自行调整</p>'\n\t}else{\n\t\tstr\n\t\t}",
+    "imageStyle": "DEFAULT"
+  },
+  "ruleExplore": {
+    "author": "class.name.2@text",
+    "bookList": "class.bd@tag.ul@tag.li",
+    "bookUrl": "class.name.1@href",
+    "intro": "class.name.1@href\n<js>\na=result\nc=\"http://www.wodeshujia.net/\"\nb=java.ajax(c+a)\n</js>\nclass.review@text",
+    "lastChapter": "class.words.1@text",
+    "name": "class.name.1@text"
+  },
+  "ruleSearch": {
+    "author": "tag.a@class.author.0@text",
+    "bookList": "class.mybook@class.hot_sale\n<js>\na=result\ne=10\nlist=[]\nb=java.get(\"pag\")\nb=(Number(b)-1)*e\njava.log(b)\nc=b+e\njava.log(c)\nd=0\nfor(i=b;i<c;i++){\n\tlist[d]=a[i]\n\td++\n\t}\n\tlist\n</js>",
+    "bookUrl": "tag.a@href",
+    "checkKeyWord": "我的",
+    "coverUrl": "",
+    "intro": "tag.a@href\n<js>\na=result\nc=\"http://www.wodeshujia.net/\"\nb=java.ajax(c+a)\n</js>\nclass.review@text",
+    "kind": "tag.a@class.author.1@text",
+    "lastChapter": "tag.a@class.author.1@text",
+    "name": "tag.a@class.title@text"
+  },
+  "ruleToc": {
+    "chapterList": "id.chapterlist@tag.p!0\n<js>\nif(String(src).match(/验证码不对/)){\thref=\"http://www.wodeshujia.net/mytool/getVerify/\"\n\tresult=[{\"text\":\"验证码\",\"tag.a@href\":href}]\n}else{result=result}\n</js>",
+    "chapterName": "text",
+    "chapterUrl": "tag.a@href\n@js:\na=result;\ns=a.toString()\nc=s.match(/\\d{1,}/gi)\n\td=\"http://www.wodeshujia.net/\"+c[0]+\"_\"+c[1]+\"/\"+c[2]+\".html\"\n\n",
+    "updateTime": ""
+  },
+  "searchUrl": "http://www.wodeshujia.net/s.html,{\n  \"method\": \"POST\",\n  \"headers\":{\"Host\":\"www.wodeshujia.net\",\n  \"Content-Length\":\"30\"\n  },\n   \"body\": \"keyword={{key}}&t={{java.put(\"pag\",page)}}\"\n}",
+  "weight": 0
+}
