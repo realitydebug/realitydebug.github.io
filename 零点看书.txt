@@ -1,5 +1,4 @@
-yjok{
-  "bookSourceComment": "",
+{
   "bookSourceGroup": "现实debug",
   "bookSourceName": "零点看书",
   "bookSourceType": 0,
@@ -8,7 +7,7 @@ yjok{
   "enabled": true,
   "enabledCookieJar": false,
   "enabledExplore": false,
-  "lastUpdateTime": 1657519902243,
+  "lastUpdateTime": 1657519243927,
   "respondTime": 180000,
   "ruleBookInfo": {},
   "ruleContent": {
