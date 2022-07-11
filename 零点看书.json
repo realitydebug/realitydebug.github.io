@@ -1,0 +1,35 @@
+yjok{
+  "bookSourceGroup": "现实debug",
+  "bookSourceName": "零点看书",
+  "bookSourceType": 0,
+  "bookSourceUrl": "http://www.xxdcjt.com/",
+  "customOrder": 0,
+  "enabled": true,
+  "enabledCookieJar": false,
+  "enabledExplore": false,
+  "lastUpdateTime": 1657519243927,
+  "respondTime": 180000,
+  "ruleBookInfo": {},
+  "ruleContent": {
+    "content": "id.TextContent@html",
+    "nextContentUrl": "text.下一页@href"
+  },
+  "ruleExplore": {},
+  "ruleSearch": {
+    "author": "tag.em@tag.span.1@text",
+    "bookList": ".j_list_container@tag.ul@tag.li",
+    "bookUrl": "tag.a.0@href",
+    "coverUrl": "tag.a.0@tag.img@src",
+    "intro": "class.fs16.0@text",
+    "kind": "tag.em@tag.span.0@text",
+    "lastChapter": "class.fs16.1@text",
+    "name": "tag.h3@text"
+  },
+  "ruleToc": {
+    "chapterList": "id.chapterList@tag.li\n<js>\na=result;\njava.log(a.length)\nlist=[]\nfor(i=0;i<a.length;i++){\n\tjava.setContent(a[i])\n\tb=java.getString(\"text\")\n\t//java.log(b)\n\tif(b==\"正文\"){\n\t\tvar s=i\n\t\tbreak\n\t\t}\n\t}\n\ts++\n\t\tjava.log(s)\n\td=a.length-s\n\tfor(i=0;i<d;i++){\n\t\tlist[i]=a[s]\n\t\t//java.log(s)\n\t\t//java.log(String(list[i]))\n\t\ts++\n\t\t}\n\tlist\n</js>",
+    "chapterName": "text",
+    "chapterUrl": "tag.a@href"
+  },
+  "searchUrl": "{{cookie.removeCookie(key)}}\nhttp://www.xxdcjt.com/search/,{\n  \"body\": \"searchkey={{key}}\",\n  \"method\": \"POST\"\n}",
+  "weight": 0
+}
