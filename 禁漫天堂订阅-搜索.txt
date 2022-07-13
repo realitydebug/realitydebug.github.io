@@ -1,0 +1,23 @@
+{
+  "articleStyle": 0,
+  "customOrder": -1,
+  "enableJs": true,
+  "enabled": true,
+  "enabledCookieJar": false,
+  "loadWithBaseUrl": true,
+  "loginUrl": "",
+  "ruleArticles": "@js:\njava.longToast(\"没有验证码，这里搜索内容\")\na=java.getVerificationCode(\"https://jmcomic.asia/captcha/\")\nb=\"https://jmcomic.asia/search/photos?search_query=\"+a+\"&main_tag=0\"\nc=java.ajax(b)\njava.setContent(c)\nlist=java.getElements(\".list-col\")",
+  "ruleContent": "@js:\na=\"https://jmcomic.asia\"\nb=java.getString(\".read-block@class.reading@href\")\njava.log(b)\nc=String(java.ajax(a+b))\njava.setContent(c)\n\nd=java.getElements(\".panel-body@class.thumb-overlay-albums@class.scramble-page\")\ne=java.getElements(\"tag.script\")\nh=java.getElements(\"tag.link\")\ni=java.getElements(\"tag.style\")\n\n\nj=java.getElements(\".phpage-bottom.1@tag.ul@tag.ul@tag.li.1\")\nk=String(j)\n\nk='<ul>'+k+'<li><a href=\"#\"><span>右上角浏览器打开，用浏览器下载</span></a></li></ul>'\n\nk='<div class=\"container phpage-bottom switch-block switch-group\" id=\"phmore-block\" style=\"bottom: 52px; background-color: rgb(51, 51, 51); display: block;\">'+k+'</div>'\n\nl=java.getElements(\".phpage-bottom.0@tag.ul@tag.ul@tag.li.0\")\nm=String(l)\n\nn=d.length\nm='<ul><li><a href=\"#\"><span>共'+n+'页</span></a></li>'+m+'</ul>'\nm='<div class=\"container phpage-bottom switch-group visible-xs visible-sm\">'+m+'</div>'\n\ng=k+m+String(e)+String(d)+String(h)+String(i)\n\ng",
+  "ruleImage": "class.thumb-overlay@tag.a.0@tag.img@data-original",
+  "ruleLink": "@js:\na=\"https://jmcomic.asia\"\nb=a+java.getString(\"div.0@tag.a.0@href\")",
+  "ruleNextPage": "class.pagination-lg@tag.li.1@tag.a@href",
+  "ruleTitle": "div.0@class.title-truncate.0@text",
+  "singleUrl": false,
+  "sortUrl": "",
+  "sourceComment": "没有验证码，验证码框搜索内容。不知道为什么下拉刷新搜索之后列表不刷新，点切换布局再搜索就正常。现实debug制作",
+  "sourceGroup": "现实debug",
+  "sourceIcon": "https://jmcomic.asia/media/logo/new_logo.png?v=20220704",
+  "sourceName": "禁漫天堂-搜索",
+  "sourceUrl": "https://jmcomic.asia",
+  "style": ""
+}
