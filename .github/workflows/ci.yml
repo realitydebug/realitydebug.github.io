@@ -18,11 +18,8 @@ jobs:
         chmod +x ./setutime/update_list
         ./setutime/update_list
 
-    - name: 查看 list.json 内容及hash
-      run: |
-        ls -l ./setutime/list.json
-        sha256sum ./setutime/list.json
-        head -20 ./setutime/list.json
+    - name: 移动 list.json 到 setutime 目录
+      run: mv list.json setutime/list.json
 
     - name: 提交并推送更新的 list.json
       working-directory: ./setutime
