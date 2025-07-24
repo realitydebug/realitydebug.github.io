@@ -102,19 +102,19 @@
       color: #6b7280;
     }
   </style>
-  <script>
-    const json = {
-      "setu": ["tonfw1.html", "cdjpm2.html", "xrmqx3.html", "qqxdj4.html", "zerba5.html", "qatsd6.html", "urrng7.html", "bcagg8.html", "9.html", "10.html", "tb11.html", "12.html"],
-      "zrsetu": ["zkkul1.html", "urbsy2.html", "3.html", "4.html", "5.html"]
-    };
+<script>
+  function jumpTo(url) {
+    window.open(url, '_blank');
+  }
 
-    function jumpTo(url) {
-      window.open(url, '_blank');
-    }
+  window.onload = async function () {
+    const root = 'https://setutime.github.io/';
+    const main = document.getElementById('main');
 
-    window.onload = function () {
-      const root = 'https://setutime.github.io/';
-      const main = document.getElementById('main');
+    try {
+      const response = await fetch('list.json');
+      if (!response.ok) throw new Error('加载失败');
+      const json = await response.json();
 
       for (const [folder, files] of Object.entries(json)) {
         const section = document.createElement('div');
@@ -144,8 +144,13 @@
         section.appendChild(container);
         main.appendChild(section);
       }
-    };
-  </script>
+    } catch (error) {
+      console.error('加载 list.json 失败:', error);
+      main.innerHTML = '<p style="color:red; text-align:center;">无法加载列表，请检查 list.json 文件。</p>';
+    }
+  };
+</script>
+
 </head>
 <body>
   <header>
