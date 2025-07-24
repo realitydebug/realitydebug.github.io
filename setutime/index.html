@@ -103,52 +103,81 @@
     }
   </style>
 <script>
+  const rootUrl = 'https://setutime.github.io/';
+  const repoApi = 'https://api.github.com/repos/setutime/setutime.github.io/contents/';
+
+  function extractNumber(filename) {
+    const match = filename.match(/(\d+)/);
+    return match ? parseInt(match[1]) : Number.MAX_SAFE_INTEGER;
+  }
+
   function jumpTo(url) {
     window.open(url, '_blank');
   }
 
-  window.onload = async function () {
-    const root = 'https://setutime.github.io/';
+  function createSection(folder, files) {
+    const section = document.createElement('div');
+    section.className = 'section';
+
+    const title = document.createElement('div');
+    title.className = 'section-title';
+    title.textContent = folder;
+    section.appendChild(title);
+
+    const container = document.createElement('div');
+    container.className = 'container';
+
+    files.forEach(file => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.onclick = () => jumpTo(`${rootUrl}${folder}/${file}`);
+
+      const cardTitle = document.createElement('p');
+      cardTitle.className = 'card-title';
+      cardTitle.textContent = file.replace('.html', '');
+
+      card.appendChild(cardTitle);
+      container.appendChild(card);
+    });
+
+    section.appendChild(container);
+    return section;
+  }
+
+  async function fetchDir(path = '') {
+    const response = await fetch(repoApi + path);
+    if (!response.ok) throw new Error(`GitHub API 请求失败：${response.status}`);
+    return await response.json();
+  }
+
+  async function loadPage() {
     const main = document.getElementById('main');
+    main.innerHTML = '';
 
     try {
-      const response = await fetch('list.json');
-      if (!response.ok) throw new Error('加载失败');
-      const json = await response.json();
+      const root = await fetchDir();
 
-      for (const [folder, files] of Object.entries(json)) {
-        const section = document.createElement('div');
-        section.className = 'section';
+      for (const folder of root) {
+        if (folder.type !== 'dir') continue;
 
-        const title = document.createElement('div');
-        title.className = 'section-title';
-        title.textContent = folder;
-        section.appendChild(title);
+        const subdir = await fetchDir(folder.name);
+        const htmlFiles = subdir
+          .filter(f => f.type === 'file' && f.name.endsWith('.html'))
+          .map(f => f.name)
+          .sort((a, b) => extractNumber(a) - extractNumber(b));
 
-        const container = document.createElement('div');
-        container.className = 'container';
-
-        files.forEach(file => {
-          const card = document.createElement('div');
-          card.className = 'card';
-          card.onclick = () => jumpTo(`${root}${folder}/${file}`);
-
-          const cardTitle = document.createElement('p');
-          cardTitle.className = 'card-title';
-          cardTitle.textContent = file.replace('.html', '');
-
-          card.appendChild(cardTitle);
-          container.appendChild(card);
-        });
-
-        section.appendChild(container);
-        main.appendChild(section);
+        if (htmlFiles.length > 0) {
+          const section = createSection(folder.name, htmlFiles);
+          main.appendChild(section);
+        }
       }
-    } catch (error) {
-      console.error('加载 list.json 失败:', error);
-      main.innerHTML = '<p style="color:red; text-align:center;">无法加载列表，请检查 list.json 文件。</p>';
+    } catch (err) {
+      console.error('加载失败:', err);
+      main.innerHTML = '<p style="color:red; text-align:center;">加载失败，请检查 GitHub API。</p>';
     }
-  };
+  }
+
+  window.onload = loadPage;
 </script>
 
 </head>
