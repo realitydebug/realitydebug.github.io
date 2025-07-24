@@ -185,7 +185,7 @@
       }
     } catch (err) {
       console.error('加载失败:', err);
-      main.innerHTML = '<p style="color:red; text-align:center;">加载失败，请检查 GitHub API。</p>';
+      main.innerHTML = '<p style="color:red; text-align:center;">加载失败,可能是请求频繁被github api 限制了</p>';
     }
   }
 
